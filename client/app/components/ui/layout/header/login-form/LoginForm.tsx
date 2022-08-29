@@ -1,49 +1,66 @@
-import { motion } from 'framer-motion';
-import { FC, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { FaRegUserCircle } from 'react-icons/fa';
-
-import { useAuth } from '@/hooks/useAuth';
-import { useOutside } from '@/hooks/useOutside';
-
-import { menuAnimation } from '@/utils/animation/fade';
-
-import styles from './LoginForm.module.scss';
-import { validEmail } from './login-auth.constants';
-import { IAuthFields } from './login-form.interface';
+import {useAuth} from '@/hooks/useAuth';
+import {useOutside} from '@/hooks/useOutside';
+import {AuthService} from "@/services/auth/auth.service";
 import Button from '@/ui/button/Button';
 import Field from '@/ui/field/Field';
 import UserAvatar from '@/ui/user-avatar/UserAvatar';
 
+import {menuAnimation} from '@/utils/animation/fade';
+import {useMutation} from '@tanstack/react-query'
+import {motion} from 'framer-motion';
+import {FC, useState} from 'react';
+import {SubmitHandler, useForm} from 'react-hook-form';
+import {FaRegUserCircle} from 'react-icons/fa';
+import {validEmail} from './login-auth.constants';
+import {IAuthFields} from './login-form.interface';
+
+import styles from './LoginForm.module.scss';
+
 const LoginForm: FC = () => {
-	const { ref, setIsShow, isShow } = useOutside(false);
-
+	const {ref, setIsShow, isShow} = useOutside(false);
+	
 	const [type, setType] = useState<'login' | 'register'>('login');
-
+	
 	const {
 		register,
-		formState: { errors },
+		formState: {errors},
 		handleSubmit,
 		reset
 	} = useForm<IAuthFields>({
 		mode: 'onChange'
 	});
-
-	const { user, setUser } = useAuth();
-
+	
+	const {user, setUser} = useAuth();
+	
+	const {mutate: loginSync} = useMutation(
+		['login'],
+		(data: IAuthFields) => AuthService.login(data.email, data.password),
+		{
+			onSuccess(data) {
+				if (setUser) setUser(data.user)
+				reset()
+				setIsShow(false)
+			}
+		}
+	)
+	
+	const {mutate: registerSync} = useMutation(
+		['register'],
+		(data: IAuthFields) => AuthService.register(data.email, data.password),
+		{
+			onSuccess(data) {
+				if (setUser) setUser(data.user)
+				reset()
+				setIsShow(false)
+			}
+		}
+	)
+	
 	const onSubmit: SubmitHandler<IAuthFields> = data => {
-		if (type === 'login')
-			setUser({
-				id: 1,
-				email: 'test@test.ru',
-				avatarPath: '/avatar.webp',
-				name: 'Art Dev'
-			});
-		// else if (type === 'register') registerSync(data);
-		reset();
-		setIsShow(false);
+		if (type === 'login') loginSync(data)
+		else if (type === 'register') registerSync(data)
 	};
-
+	
 	return (
 		<div className={styles.wrapper} ref={ref}>
 			{user ? (
@@ -54,11 +71,11 @@ const LoginForm: FC = () => {
 				/>
 			) : (
 				<button onClick={() => setIsShow(!isShow)} className={styles.button}>
-					<FaRegUserCircle />
+					<FaRegUserCircle/>
 				</button>
 			)}
-
-			<motion.div animate={isShow ? 'open' : 'closed'} variants={menuAnimation}>
+			
+			<motion.div initial={false} animate={isShow ? 'open' : 'closed'} variants={menuAnimation}>
 				<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						{...register('email', {
