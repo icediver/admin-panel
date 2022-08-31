@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { getSequelizeConfig } from './config/db.config';
+import { MediaModule } from './media/media.module';
 import { MovieModule } from './movie/movie.module';
 import { ReviewModule } from './review/review.module';
 import { ViewsModule } from './views/views.module';
@@ -20,7 +21,8 @@ import { ViewsModule } from './views/views.module';
 		AuthModule,
 		MovieModule,
 		ReviewModule,
-		ViewsModule
+		ViewsModule,
+		MediaModule
 	],
 	controllers: [AppController],
 	providers: [AppService]
