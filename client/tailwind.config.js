@@ -22,18 +22,19 @@ module.exports = {
 				'7xl': '5.8rem'
 			},
 			colors: {
-				primary: '#5F3DF7'
+				primary: '#5F3DF7',
+				black: '#222'
 			},
 			transitionTimingFunction: {
 				DEFAULT: 'ease'
 			},
 			transitionDuration: {
-				DEFAULT: '350ms'
+				DEFAULT: '250ms'
 			}
 		}
 	},
 	plugins: [
-		plugin(({ addUtilities, addComponents }) => {
+		plugin(({addUtilities, addComponents}) => {
 			addComponents({
 				'.shadow-icon': {
 					// border: 'none',
