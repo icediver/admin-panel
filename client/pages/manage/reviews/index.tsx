@@ -1,7 +1,9 @@
 import { NextPage } from 'next';
 
-const MovieListPage: NextPage = () => {
-	return <div>Index</div>;
+import ReviewList from '@/screens/dashboard/reviews/list/ReviewList';
+
+const ReviewListPage: NextPage = () => {
+	return <ReviewList />;
 };
 
-export default MovieListPage;
+export default ReviewListPage;

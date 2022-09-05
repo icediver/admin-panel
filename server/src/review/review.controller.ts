@@ -6,6 +6,7 @@ import {
 	HttpCode,
 	Param,
 	Post,
+	Put,
 	UsePipes,
 	ValidationPipe
 } from '@nestjs/common';
@@ -35,6 +36,13 @@ export class ReviewController {
 	@Auth()
 	async deleteReview(@Param('id') id: string) {
 		return this.reviewService.delete(+id);
+	}
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	@Put(':id')
+	@Auth()
+	async updateReview(@Param('id') id: string, @Body() dto: ReviewDto) {
+		return this.reviewService.update(+id, dto);
 	}
 
 	@UsePipes(new ValidationPipe())
