@@ -1,4 +1,4 @@
 .chart {
-	@apply p-5 rounded-2xl w-full;
-	background: rgba(210, 218, 242, 0.8);
+	@apply p-5 rounded-2xl gdark:bg-zinc-600 gdark:bg-opacity-20;
+	background-color: rgba(210, 218, 242, 0.8);
 }

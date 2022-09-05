@@ -1,15 +1,21 @@
+:global(.dark) .item {
+	background-color: #1f1f23;
+	border-top: 2px solid rgba(255, 255, 255, 0.1);
+	border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
 .item {
-	@apply px-4 py-2 rounded-2xl relative cursor-default;
+	@apply px-4 py-5 rounded-2xl relative cursor-default transition-all gdark:text-white;
 	background-color: #f2f7ff;
 	border-top: 2px solid #fff;
 	border-left: 2px solid #fff;
 	
 	&::before {
 		content: '';
-		@apply absolute w-full h-full rounded-2xl -bottom-1 left-0 transition-all;
-		box-shadow: 0 10px 20px rgba(37, 12, 171, 0.3);
-		z-index: -1;
+		@apply absolute w-full h-full rounded-2xl -bottom-1 left-0 transition-all gdark:bg-purple-700 gdark:bg-opacity-50;
 		background-color: #b7c5f3;
+		z-index: -1;
+		box-shadow: 0 10px 20px rgba(37, 12, 171, 0.3);
 	}
 	
 	&.color_1::after {
@@ -28,28 +34,26 @@
 		background-image: linear-gradient(to top, #00d098, #00a97b);
 	}
 	
-	
 	&::after {
 		content: '';
-		@apply absolute w-5 h-20 rounded-l-xl -bottom-1 right-0 transition-all;
+		@apply absolute w-5 rounded-tl-xl rounded-bl-xl right-0 transition-all;
+		height: 5.3rem;
 		top: 50%;
 		transform: translateY(-50%);
-		box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
 		z-index: 1;
-		box-shadow: inset 5px 4px 7px rgba(0, 0, 0, 0.2);
+		box-shadow: inset 5px 4px 7px rgba(0, 0, 0, 0.15);
 	}
 	
-	
 	.icon {
-		@apply text-stone-700 mb-2 text-3xl;
+		@apply text-stone-700 mb-2 text-2xl gdark:text-white;
 	}
 	
 	.name {
-		@apply font-light mb-1 opacity-70;
+		@apply font-light mb-1.5 opacity-70;
 	}
 	
 	.value {
-		@apply text-base font-medium;
+		@apply text-lg font-medium;
 		min-height: 42.6px;
 	}
 }

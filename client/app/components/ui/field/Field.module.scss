@@ -5,11 +5,11 @@
 	
 	
 	> input {
-		@apply p-1 w-full text-xs rounded-md overflow-hidden block bg-white text-gray-400;
+		@apply p-1 w-full text-xs rounded-md overflow-hidden block bg-white gdark:bg-zinc-900 text-gray-400 gdark:text-white;
 		@include shadow();
 		
 		&::placeholder {
-			@apply text-gray-400 text-opacity-50 font-light;
+			@apply text-gray-400 gdark:text-white text-opacity-50 font-light;
 		}
 		
 		&:focus-visible {

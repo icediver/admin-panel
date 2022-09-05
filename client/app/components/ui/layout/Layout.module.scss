@@ -6,8 +6,7 @@
 	height: calc(100vh - 5rem);
 	
 	.content {
-		@apply rounded-3xl;
-		background-color: #ebeffd;
+		@apply rounded-3xl bg-[#ebeffd] gdark:bg-zinc-800;
 		@include shadow('lg', false);
 		z-index: 1;
 	}
@@ -15,5 +14,5 @@
 }
 
 .main {
-	@apply px-6 pt-4 pb-14 ;
+	@apply px-6 pt-4 pb-4 ;
 }
