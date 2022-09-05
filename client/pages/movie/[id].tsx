@@ -1,8 +1,9 @@
-import Movie from "@/screens/movie/Movie";
-import {NextPage} from 'next'
+import { NextPage } from 'next';
+
+import Movie from '@/screens/movie/Movie';
 
 const MoviePage: NextPage = () => {
-	return <Movie/>
-}
+	return <Movie />;
+};
 
-export default MoviePage
+export default MoviePage;
