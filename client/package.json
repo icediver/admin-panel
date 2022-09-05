@@ -24,7 +24,8 @@
     "react-icons": "^4.4.0",
     "react-loading-skeleton": "^3.1.0",
     "react-query": "^3.39.2",
-    "sass": "^1.54.5"
+    "sass": "^1.54.5",
+    "tailwindcss-global-dark": "^1.0.1"
   },
   "devDependencies": {
     "@tanstack/react-query": "^4.2.3",

@@ -13,7 +13,7 @@
 
 .detail {
 	.heading {
-		@apply text-3xl mb-1;
+		@apply text-3xl mb-1 gdark:text-white;
 	}
 	
 	.rating {
@@ -21,13 +21,13 @@
 	}
 	
 	.title {
-		@apply mb-1 font-medium;
+		@apply mb-1 font-medium gdark:text-white;
 	}
 	
 	> ul {
 		@apply list-none pl-0;
 		> li {
-			@apply block mb-1.5 text-sm;
+			@apply block mb-1.5 text-sm gdark:text-white;
 			> span {
 				&:first-child {
 					@apply font-light w-24 mr-3;

@@ -1,5 +1,5 @@
 .table-item {
-	@apply flex-center-between flex-wrap bg-white w-full py-2 px-5 rounded-md mb-3 relative;
+	@apply flex-center-between flex-wrap bg-white gdark:bg-zinc-700 gdark:bg-opacity-60 gdark:text-white w-full py-2 px-5 rounded-md mb-3 relative;
 	box-shadow: 0 4px 10px rgba(45, 8, 125, 0.2);
 	
 	> .info {
@@ -18,7 +18,7 @@
 		}
 		
 		> button {
-			@apply hover:opacity-100 opacity-75 transition-opacity text-red-700 text-lg;
+			@apply hover:opacity-100 opacity-75 transition-opacity text-red-700 gdark:text-red-500 text-lg;
 		}
 	}
 }

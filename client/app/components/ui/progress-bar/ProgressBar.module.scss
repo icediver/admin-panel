@@ -1,23 +1,25 @@
+:global(.dark) .progress .overflow .bar {
+	border: 28px solid rgba(255, 255, 255, 0.2); /* half gray, */
+	border-bottom-color: #b4ff7a; /* half azure */
+	border-right-color: #b4ff7a;
+}
+
 .progress {
-	@apply relative mb-2 text-center;
-	.overflow {
-		@apply relative overflow-hidden w-52 h-24  mx-auto;
-		//		width: 12rem;
-		
-	}
+	@apply relative mb-8 text-center;
 	
-	.bar {
-		@apply absolute top-0 left-0 w-52  h-52 rounded-full box-border;
-		//		width: 12rem;
-		//		box-shadow: 0px 10px 20px rgba(37, 12, 171, 0.3);
-		//		border-image: linear-gradient(#0B0E7F, #0B95DD);
-		border: 30px solid #fafafa;
-		border-bottom-color: #6cf58c;
-		border-right-color: #ffe300;
+	.overflow {
+		@apply relative overflow-hidden w-52 h-24 mx-auto;
+		
+		.bar {
+			@apply absolute top-0 left-0 w-52 h-52 rounded-full box-border;
+			border: 28px solid #fafafa; /* half gray, */
+			border-bottom-color: #9ff162; /* half azure */
+			border-right-color: #9ff162;
+		}
 	}
 	
 	.percent {
-		@apply font-semibold text-2xl -mt-10;
+		@apply font-semibold text-2xl -mt-9;
 		color: #fafafa;
 	}
 }

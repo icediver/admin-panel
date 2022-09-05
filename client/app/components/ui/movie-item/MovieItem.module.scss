@@ -3,7 +3,7 @@
 	width: 14%;
 	
 	.rating {
-		@apply absolute -left-2.5 top-2 bg-green-600 text-white rounded-md py-1 px-3 text-center z-10 text-sm;
+		@apply absolute -left-2.5 top-2 bg-green-600 text-white  rounded-md py-1 px-3 text-center z-10 text-sm;
 	}
 	
 	.poster {
@@ -11,7 +11,7 @@
 	}
 	
 	.heading {
-		@apply text-black mt-3 font-medium transition-colors;
+		@apply text-black gdark:text-white mt-3 font-medium transition-colors;
 	}
 	
 	&:hover {

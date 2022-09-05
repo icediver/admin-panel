@@ -1,8 +1,8 @@
 .header {
-	@apply flex-center-between p-2 border-0 border-b-2 border-solid border-b-white;
+	@apply flex-center-between p-2 border-0 border-b-2 border-solid border-b-white gdark:border-b-black;
 }
 
 .logo {
-	@apply block text-2xl text-black font-bold;
+	@apply block text-2xl gdark:text-white text-black font-bold;
 	line-height: 0.8;
 }

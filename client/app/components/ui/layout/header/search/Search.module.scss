@@ -5,7 +5,7 @@
 	max-width: 600px;
 	
 	.result {
-		@apply flex flex-wrap absolute z-10 p-5 mt-3 w-full rounded-lg;
+		@apply flex flex-wrap absolute z-20 p-5 mt-3 w-full rounded-lg gdark:bg-zinc-900 gdark:text-white;
 		background-color: #ebecf4;
 		width: 600px;
 		left: -144px;
