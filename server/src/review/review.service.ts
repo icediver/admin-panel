@@ -23,6 +23,13 @@ export class ReviewService {
 
 		return review;
 	}
+	async update(id: number, dto: ReviewDto) {
+		const review = await this.byId(id);
+		return review.update({
+			...review,
+			...dto
+		});
+	}
 
 	async getAll() {
 		return this.reviewModel.findAll({
