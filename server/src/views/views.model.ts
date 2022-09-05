@@ -4,9 +4,9 @@ import { MovieModel } from '../movie/movie.model';
 @Table({ tableName: 'Views', deletedAt: false, version: false })
 export class ViewsModel extends Model<ViewsModel> {
 	@ForeignKey(() => MovieModel)
-	@Column({ unique: true })
+	@Column
 	movieId: number;
 
-	@Column({ defaultValue: 0 })
+	@Column({ defaultValue: 1 })
 	views: number;
 }
